@@ -1,23 +1,23 @@
-/*                                      Major League Baseball Stat Guide for Wagers                                                             */
-/*
-/*
-/* Inspired by a Reddit user's statistcal model from years ago, this command-line betting tool
-/* scrapes MLB data from publicly availalbe source, for the most important advanced baseball metrics
-/* (according to me) you could use to assist in selecting a team to pick to win a ballgame. In order
-/* of importance, those would be:
-/*              1. Pitching (fip, differentials between starters)
-/*                 2. TEAM Hitting (top-8 hitting teams league-wide, last 4 days, per OPS)
-/*                    3. Fielding (double-plays / error ratios, roughly last 6 days, or, 1 pitching rotation)
-/*                       4. then simply, yesterday's scores.
-/*
-/* Alongside the above are a few complementary stats, which give the user a better sense of a team's
-/* performance on the field. This packages comes with a NO ACTION alert as well for pitching changes,
-/* which can come in handy                                                                                                                      */
+                                      Major League Baseball Stat Guide for Wagers                                                             
+
+
+ Inspired by a Reddit user's statistcal model from years ago, this command-line betting tool
+ scrapes MLB data from publicly availalbe source, for the most important advanced baseball metrics
+ (according to me) you could use to assist in selecting a team to pick to win a ballgame. In order
+ of importance, those would be:
+              1. Pitching (fip, differentials between starters)
+                 2. TEAM Hitting (top-8 hitting teams league-wide, last 4 days, per OPS)
+                    3. Fielding (double-plays / error ratios, roughly last 6 days, or, 1 pitching rotation)
+                       4. then simply, yesterday's scores.
+
+ Alongside the above are a few complementary stats, which give the user a better sense of a team's
+ performance on the field. This packages comes with a NO ACTION alert as well for pitching changes,
+ which can come in handy                                                                                                                      
 
 
 ### requirements:
 
-*GUI browser (Firefox recommended)
+*GUI browser (Firefox recommended; VPN recommended)
 *sportsbook account (if putting money down / enter account in the configuration file)
 *Linux distro running BASH w/ git installed
 
