@@ -29,13 +29,13 @@
 
     ./mlb.sh
 
-        (the script will zip through the primary hitting/pitching stats, then slows down for the defensive stats. A "CHECK" next to pitcher,
-        means there are more than one pitchers listed under that name. An opposing pitcher left blank means they have no recent stats; could be an
-        injury or recently brought up, et cetera)
+   (the script will zip through the primary hitting/pitching stats, then slows down for the defensive stats. A "CHECK" next to pitcher,
+   means there are more than one pitchers listed under that name. An opposing pitcher left blank means they have no recent stats; could be an
+   injury or recently brought up, et cetera)
 
-                This packages comes with a game launcher, if you watch games online. Enter your favorite sight in the configuration file as well.
+    This packages comes with a game launcher, if you watch games online. Enter your favorite sight in the configuration file as well.
 
-                  After analzying all the data (4-6 minutes on my system), a prompt asks you to enter your pick's team-code to keep track of your picks'                       win-losses record. Enter this, along with the last names of the starting pitchers, your pitcher first, all on one line:
-                                syntax: ATL Fredde Wainright
-                        
-        The script's built-in timer will launch your game at first-pitch.. Grab some sunflower seeds, a beverage, and enjoy your game!
+    After analzying all the data (4-6 minutes on my system), a prompt asks you to enter your pick's team-code to keep track of your picks'                       win-losses record. Enter this, along with the last names of the starting pitchers, your pitcher first, all on one line:
+                        syntax: ATL Fredde Wainright
+                    
+    The script's built-in timer will launch your game at first-pitch.. Grab some sunflower seeds, a beverage, and enjoy your game!
