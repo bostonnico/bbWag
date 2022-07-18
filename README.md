@@ -22,12 +22,11 @@
 *Linux distro running BASH w/ git installed
 
 ### install:
-  git clone bostonnico/
-  Fill out "mlb.config"  in root folder
-
+  git clone https://github.com/bostonnico/bbWag.git
+  
 ### run:
 
-    ./mlb.sh
+    ./mlb.sh and fill out the init questions
 
    (the script will zip through the primary hitting/pitching stats, then slows down for the defensive stats. A "CHECK" next to pitcher,
    means there are more than one pitchers listed under that name. An opposing pitcher left blank means they have no recent stats; could be an
