@@ -1,4 +1,4 @@
-                                      Major League Baseball Stat Guide for Wagers                                                             
+                                      MLB Regular-Season Stat Guide for Wagers                                                             
 
 
  Inspired by a Reddit user's statistcal model from years ago, this command-line betting tool
