@@ -1,7 +1,7 @@
                                       MLB Regular-Season Stat Guide for Wagers                                                             
 
 
- Inspired by a Reddit user's statistcal model from years ago, this command-line betting tool
+ This app is inspired by a Reddit user's statistcal model from years ago, this command-line betting tool
  scrapes MLB data from publicly availalbe source, for the most important advanced baseball metrics
  (according to me) you could use to assist in selecting a team to pick to win a ballgame. In order
  of importance, those would be:
@@ -12,29 +12,30 @@
 
  Alongside the above are a few complementary stats, which give the user a better sense of a team's
  performance on the field. This packages comes with a NO ACTION alert as well for pitching changes,
- which can come in handy                                                                                                                      
-
+ which really comes in handy after a lot of time spent selecting your pick for the day.                                                                                                                      
 
 ### requirements:
 
-*GUI browser (Firefox recommended; VPN recommended)
-*sportsbook account (if putting money down / enter account in the configuration file)
-*Linux distro running BASH w/ git installed
+-Debian 10 or higher (will run, I'm sure, w/ other bash-based distrubitions of linux w/ a few tweaks)
+    1. The real distro /or
+    2. WSM->Debian, linux through windows now?!! works like a charm!
+            https://docs.microsoft.com/en-us/windows/wsl/install
+            
+-git (sudo apt install git)
 
 ### install:
   git clone https://github.com/bostonnico/bbWag.git
+  /MLB/mlb.sh init
   
 ### run:
 
-    ./mlb.sh and fill out the init questions
+    ./mlb.sh
 
-   (the script will zip through the primary hitting/pitching stats, then slows down for the defensive stats. A "CHECK" next to pitcher,
-   means there are more than one pitchers listed under that name. An opposing pitcher left blank means they have no recent stats; could be an
+   (the pack of scripts zips through the primary hitting/pitching stats, then scrapes through the defensive stats. A "CHECK" next to pitcher,
+   means there are more than one pitchers w/ same last name. An opposing pitcher left blank means they have no recent stats; could be an
    injury or recently brought up, et cetera)
-
-    This packages comes with a game launcher, if you watch games online. Enter your favorite sight in the configuration file as well.
 
     After analzying all the data (4-6 minutes on my system), a prompt asks you to enter your pick's team-code to keep track of your picks'                       win-losses record. Enter this, along with the last names of the starting pitchers, your pitcher first, all on one line:
                         syntax: ATL Fredde Wainright
                     
-    The script's built-in timer will launch your game at first-pitch.. Grab some sunflower seeds, a beverage, and enjoy your game!
+    The script's built-in timer will launch your game at first-pitch through a browser of your choosing (optional). Grab some sunflower seeds, a beverage, and enjoy your game!
