@@ -22,6 +22,7 @@
             https://docs.microsoft.com/en-us/windows/wsl/install
             
 -git (sudo apt install git)
+-node (sudo apt install node;npm install node-fetch;npm install stream-to-string;npm install JSON;npm install fs)
 
 ### install:
   git clone https://github.com/bostonnico/bbWag.git
