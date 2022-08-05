@@ -36,7 +36,7 @@
 ### install:
  - git clone https://github.com/bostonnico/bbWag.git
   
- - ./MLB/init.sh
+ - ./bbWag/init.sh
   
 ### run:
 
