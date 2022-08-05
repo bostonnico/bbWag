@@ -36,7 +36,7 @@
 ### install:
  - git clone https://github.com/bostonnico/bbWag.git
   
- - ./bbWag/init.sh
+ - sudo ~/bbWag/init.sh
   
 ### run:
 
