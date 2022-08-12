@@ -15,7 +15,11 @@ trap "rm FIP* scores* temp* 2>/dev/null;exit" 2;clear;cd ${DIR}/MLB
 if [[ $(TZ=America/New_York date +%-H) -gt '20' || $(TZ=America/New_York date +%-H) -lt '8' ]];then
 tput cup 20 46;echo " Please note script is intended to function correctly before the first pitch";tput cup 21 36;echo "of the first game of the day.";sleep 2s;clear;tput cup 20 46;echo "Otherwise, statistics will most likely not display properly as most stat sites have not yet been updated. -NL"
 fi
-today=$(date +"20%y-%m-%d" -d "today");pitching=$(date +"20%y-%m-%d" -d "14 days ago");yesterday1=$(date +"20%y-%m-%d" -d "yesterday");yesterday=$(date +"20%y%m%d" -d "yesterday");selectdaysback=4;counter=1
+today=$(date +"20%y-%m-%d" -d "today");pitching=$(date +"20%y-%m-%d" -d "14 days ago");yesterday1=$(date +"20%y-%m-%d" -d "yesterday");yesterday=$(date +"20%y%m%d" -d "yesterday");counter=1
+
+echo "How many days back would you like to set your hitting statistics function to? ( anywhere from 3 to 5 recommended )"
+read back
+selectdaysback=$(echo $back})
 
 echo " URL to check your betting lines, and potentially place a wager on a game: ${URL}"
 curl --silent https://plaintextsports.com/ | html2text | grep -A30 'Major League Baseball' | sed 1,2d | head -n15 | grep "^ +" | sed "s/SD/SDP/g;s/SF/SFG/g;s/WSH/WSN/g;s/TB/TBR/g;s/KC/KCR/g;s/__/_/g" > tonightTimes;awk -F '\|' '{print $4,$6}' tonightTimes | awk -F '\_' '{print$2,$5}' | awk NF > tonightsMatchups
@@ -23,9 +27,9 @@ curl --silent https://plaintextsports.com/ | html2text | grep -A30 'Major League
 Team_Hitting () {
 printf '%b\n'
 cstartdate=$(date +"20%y-%m-%d" -d "$selectdaysback days ago");cenddate=$(date +"20%y-%m-%d" -d "yesterday");spacee="     "
-curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=0&type=8&season=2022&month=1000&season1=2022&ind=0&team=0%2Cts&rost=0&age=0&filter=&p%20%20%20%20layers=0&startdate=$cstartdate&enddate=$cenddate&sort=14%2Cd" \
+curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=0&type=8&season=$(date +"20%y" -d "today")&month=1000&season1=$(date +"20%y" -d "today")&ind=0&team=0%2Cts&rost=0&age=0&filter=&p%20%20%20%20layers=0&startdate=$cstartdate&enddate=$cenddate&sort=14%2Cd" \
 	--compressed -k | html2text -o Daysback;cp Daysback $(pwd)/logicPicker;echo -e "Hw/R\tOPS\tABs,SBs (last \e[7m4\e[27m gms)";printf '%b\n' 
-	grep '^ 1 ' -A20 Daysback | awk '{print $14+$15,$2,$4,$8}' | sort | tac | grep '^0\.' | sed G | cat -b | sed "16,16s/^/&__^/g" > temp1;head -n16 temp1;tail -n8 temp1 > temp44    
+	grep '^ 1 ' -A20 Daysback | awk '{print $2,$4,$8,$14,$15}' | grep -v "^ " | grep -v "^[0-9]" | awk '{print" ",$2,$1,$4+$5,$3}' | sort -n | sed G | sed "16,16s/^/&__^/g" > temp1;head -n16 temp1;tail -n8 temp1 > temp44    
 										# ^ highest plate apps. in my group
 
 awk -v topABs="`cat temp1 | head -n16 | awk '{print$4}' | sort | awk NF | tac | head -n1`" 'topABs-$4>=30{print}' <<< $(cat temp44)
@@ -38,8 +42,8 @@ rm temp*; rm Daysback
 
 Top30Probables () { 										
 										#NOTE: 7/22, changed min. innings 10 > 11
-curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=sta&lg=all&qual=11&type=8&season=2022&month=2&season1=2022&ind=0&team=0&rost=0&age=0&filter=&players=0&startdate=2022-01-01&enddate=2022-12-31&sort=19,a" -k | html2text -o temp
-curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=sta&lg=all&qual=0&type=8&season=2022&month=2&season1=2022&ind=0&team=0&rost=0&age=0&filter=&players=0&startdate=2022-01-01&enddate=2022-12-31&sort=19,a&page=1_170" -k | html2text -o tempWhole;cp tempWhole $(pwd)/logicPicker 
+curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=sta&lg=all&qual=11&type=8&season=$(date +"20%y" -d "today")&month=2&season1=$(date +"20%y" -d "today")&ind=0&team=0&rost=0&age=0&filter=&players=0&startdate=$(date +"20%y" -d "today")-01-01&enddate=$(date +"20%y" -d "today")-12-31&sort=19,a" -k | html2text -o temp
+curl --silent "https://www.fangraphs.com/leaders.aspx?pos=all&stats=sta&lg=all&qual=0&type=8&season=$(date +"20%y" -d "today")&month=2&season1=$(date +"20%y" -d "today")&ind=0&team=0&rost=0&age=0&filter=&players=0&startdate=$(date +"20%y" -d "today")-01-01&enddate=$(date +"20%y" -d "today")-12-31&sort=19,a&page=1_170" -k | html2text -o tempWhole;cp tempWhole $(pwd)/logicPicker 
 										#whole league
 
 
