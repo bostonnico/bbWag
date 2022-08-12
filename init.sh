@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if [[ -s /etc/os-release || -s /etc/sysconfig/***** ]];then
-echo "This package requires a version of BASH to operate, sorry."
+echo "This package requires a version of BASH to operate. Please consider switching shells, or learning bash first."
 exit
 fi
 
 if [[ $(type node) ]];then
 echo " node installed"
 else
-	echo "install node before proceeding "
+	echo "plz install node with root privileges before proceeding "
 	exit
 
 fi
@@ -16,7 +16,7 @@ if [[ $(type curl) ]];then
 	echo "curl installed"
 else
 
-	echo "install curl before proceeding "
+	echo "install curl with root privileges before proceeding "
 	exit
 
 fi
@@ -24,16 +24,16 @@ if [[ $(type tput) ]];then
 	echo "tput installed"
 else
 
-	echo "install tput before proceeding "
+	echo "install tput with root privileges before proceeding "
 	exit
 fi
 if [[ $(type banner) ]];then
 	echo "banner installed"
 else
-	echo "install banner before proceeding "
+	echo "install banner with root privileges before proceeding "
 	exit
 fi
-echo " Howdy... you're good to go. Creating configuration file for bbWag ...";echo " ";echo " "
+echo " Howdy... you're good to go. Configuration file for bbWag, for use in the $(date +"20%y" -d "today") mlb regular season is ready to run...";echo " ";echo " "
 
 tmpRt=$(pwd);echo "Using $tmpRt as the root directory for bbWag"
 DIR=$(echo $tmpRt/MLB);chmod 755 ${DIR};echo ${tmpRt} >> mlb.cgf
